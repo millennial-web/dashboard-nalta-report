@@ -157,7 +157,7 @@ function generatePlots(){
 
 let gen3dScatter = function () {
   entity_id = d3.select("#selDataset3").property("value");
-  link = 'http://127.0.0.1:5000/entidad/' + entity_id;
+  link = 'https://flask-api-nalta-report.herokuapp.com/entidad/' + entity_id;
   
   d3.json(link).then(res => {
     data = res.data;
