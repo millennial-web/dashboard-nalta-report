@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+    <!-- CSS Files -->
+    <link type="text/css" href="icicle/css/base.css" rel="stylesheet" />
+    <link type="text/css" href="icicle/css/Icicle.css" rel="stylesheet" />
+
+
+    <!--JIT library-->
+    <script language="javascript" type="text/javascript" src="icicle/jit.js"></script>
+    <title>Land traffic accidents Geomapping</title>
+</head>
+<body onload="init();">
+    <!--NAVBAR-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="assets/car_icon.png" width="30" height="30" class="d-inline-block align-top" alt=""> NALTA Report
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">National map <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="plots.html">Other plots</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="icicle.html">Icicle diagram</a>
+            </li>
+          </ul> 
+        </div>
+        <span class="navbar-text">
+            Boot Camp Project 2
+          </span>
+    </nav>
+
+
+    <!--ICICLE DIAGRAM -->
+
+    <div class="container mt-4" id="description">
+      <div class="row">
+        <div class="col-md-3"> <!--START LEFT COLUMN-->
+          <h4>Icicle Tree</h4>
+          <p>The present diagram shows in more detail the amount of incidents per state up to 5 levels:</p>
+          <p>
+            <b>Level 1:</b> Total national incidents<br>
+            <b>Level 2:</b> Incidents per state<br>
+            <b>Level 3:</b> By zone<br>
+            <b>Level 4:</b> By type of collision<br>
+            <b>Level 5:</b> By outcome<br><br>
+            <b>Left click</b> on any node to go deeper into it.<br>
+            <b>Right click</b> on any node to go back one level.
+          </p>
+          
+        <div>
+          <label for="s-orientation">Orientation: </label>
+          <select name="s-orientation" id="s-orientation">
+            <option value="h" selected>horizontal</option>
+            <option value="v">vertical</option>
+          </select>
+          <br>
+          <div id="max-levels">
+            <label for="i-levels-to-show">Max levels: </label>
+            <select  id="i-levels-to-show" name="i-levels-to-show" style="width: 50px">
+              <option>all</option>
+              <option>1</option>
+              <option>2</option>
+              <option selected="selected">3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+      
+      
+      <a id="update" href="#" class="theme button white">Go upper level</a>
+       
+      <div id="id-list"></div>
+      
+      
+               
+      </div> <!--END LEFT COLUMN-->
+      
+
+
+
+
+      <div class="col-md-9" id="icicle-container">
+          <div id="infovis"></div>    
+      </div>
+      
+      <!-- <div id="right-container">
+      
+      <div id="inner-details"></div>
+      
+      </div> -->
+      
+      <div id="log"></div>
+      </div>
+    </div>
+    
+    <!--FOOTER-->
+    <footer class="text-muted">
+        <div class="container mt-3" style="text-align: center;">
+            <p>July 2020</p>
+        </div>
+    </footer>
+    
+    <script language="javascript" type="text/javascript" src="icicle/acc.json"></script>
+    <!--Icicle js-->
+    <script language="javascript" type="text/javascript" src="icicle/example2.js"></script>
+</body>
+</html>
